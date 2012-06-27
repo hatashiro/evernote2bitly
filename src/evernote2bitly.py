@@ -41,12 +41,10 @@ for note in soup.find_all('note'):
 # sort by created datetime
 links = sorted(links, key=lambda link: link.created)
 
-
 # get oauth token
 bitly_id = raw_input('bitly account id > ')
 bitly_pw = raw_input('bitly password > ')
 access_token = requests.post('https://api-ssl.bitly.com/oauth/access_token', auth=(bitly_id, bitly_pw)).text
-print access_token
 
 # save url
 for link in links:
